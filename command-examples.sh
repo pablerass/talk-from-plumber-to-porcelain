@@ -45,11 +45,9 @@ v1
 
 -> % git ls-files --stage
 
--- Checkout
-git read-tree -m -u $M develop
-git symbolic-ref HEAD refs/heads/develop
-
-#git read-tree HEAD -u (--reset)
+-- Tags
+-> % git cat-file 85dbb0 -p | git hash-object --stdin -t tag
+85dbb0f2e274b77eb7f75a081435f7dbb1aaecaa
 
 -- Show in screen
 watch ls -lR objects/*
