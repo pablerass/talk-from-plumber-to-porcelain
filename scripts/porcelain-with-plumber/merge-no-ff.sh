@@ -2,8 +2,16 @@
 
 BRANCH=$1
 
-git read-tree -m -u $M refs/heads/$BRANCH
+BRANCH_COMMIT=`git rev-parse $BRANCH`
+if git rev-list HEAD | grep $BRANCH_COMMIT; then
+	echo "Already merged"
+	exit 0
+fi
 
-COMMIT=`git create-commit -p HEAD -p refs/heads/$BRANCH`
+if !git read-tree -m -u $M refs/heads/$BRANCH; then
+	exit 1
+fi
+
+COMMIT=`echo "Merge commit $BRANCH" | git create-commit -p HEAD -p refs/heads/$BRANCH`
 
 git update-ref HEAD $COMMIT

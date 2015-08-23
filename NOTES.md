@@ -19,7 +19,7 @@
 1. What Git really is - Using empty repository.
     * Git ∈ { K,V stores }
 
-1. K,V plumberign management.
+1. K,V plumbering management.
     * Creating an empty repository.
         * Show `.git` content file.
     * Managing _blob_ objects.
@@ -28,7 +28,7 @@
     * Creating _commit_ object.
 
 1. Join plumber into porcelain.
-    * Log - `rev-list`.
+    * Log.
     * Commit.
     * Checkout.
         * Git is a Distributed CVS and `.git` is the repository.
@@ -47,3 +47,4 @@
 * `reflog` content.
 * Difference between ref and symbolic-ref. Previously use of `ln -s` and
   deprecated due to multi-platform compatibility.
+* Why is a distributed CVS and what means a checkout.

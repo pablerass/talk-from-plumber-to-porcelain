@@ -1,7 +1,9 @@
 #!/bin/bash -x
 
+TEXT=$1
+
 TREE=`git write-tree`
 
-COMMIT=`git create-commit -p HEAD $TREE`
+COMMIT=`echo $1 | git commit-tree -p HEAD $TREE`
 
 git update-ref HEAD $COMMIT
