@@ -2,7 +2,7 @@
 
 source config.sh
 
-if [! -d "$DIR" ]; then
+if ! [ -d "$DIR" ]; then
 	mkdir "$DIR"
 fi
 

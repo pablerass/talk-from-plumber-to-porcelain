@@ -1,8 +1,6 @@
 #!/bin/bash
 
 CUR_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-DIR=~/tmp
 
-REPO=talk
+echo "$CUR_DIR/create-demo-repo:$CUR_DIR/porcelain-with-plumber"
 
-REPO_DIR=$DIR/$REPO
