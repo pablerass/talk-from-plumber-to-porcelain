@@ -8,26 +8,36 @@ cd $REPO_DIR
 
 print_head() {
 	HEAD=$(git symbolic-ref HEAD)
-	echo "-- HEAD -----------------"
+	echo "-- HEAD --"
 	git show-ref $HEAD
-}
-
-print_staging() {
-	echo "-- Staging area ---------"
-	git ls-files --stage
+	echo
 }
 
 print_refs() {
-	echo "-- Refs -----------------"
+	echo "-- Refs --"
 	REFS=$(find .git/refs -type f | sed -r 's,^\.git/,,')
 
 	for REF in $REFS; do
 		echo "$(git show-ref $REF)"
 	done
+	echo
 }
 
+print_log() {
+	echo "-- Log --"
+	git rev-list --all
+	echo
+}
+
+print_staging() {
+	echo "-- Staging area --"
+	git ls-files --stage
+	echo
+}
+
+
 print_objects() {
-	echo "-- Objects --------------"
+	echo "-- Objects --"
 	OBJECTS=$(find .git/objects/ -type f | egrep '[0-9a-f]{38}' |
 				sed -r 's,^.*([0-9a-f][0-9a-f])/([0-9a-f]{38}),\1\2,')
 
@@ -52,12 +62,11 @@ print_objects() {
 				;;
 		esac
 	done
+	echo
 }
 
 print_head
-echo
-print_staging
-echo
 print_refs
-echo
+print_log
+print_staging
 print_objects
