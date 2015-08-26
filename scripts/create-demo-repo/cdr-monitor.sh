@@ -25,9 +25,12 @@ print_refs() {
 
 print_log() {
 	echo "-- Log --"
-	for REV in `git rev-list --all`; do
-		echo "$REV - $(git show -s --format=%B $REV)"
-	done
+	if git show-ref HEAD; then
+		REVS=$(git rev-list --all)
+		for REV in $REVS; do
+			echo "$REV - $(git show -s --format=%B $REV)"
+		done
+	fi
 	echo
 }
 
