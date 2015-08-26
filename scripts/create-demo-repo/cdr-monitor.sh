@@ -15,6 +15,7 @@ print_head() {
 
 print_refs() {
 	echo "-- Refs --"
+	#git show-ref
 	REFS=$(find .git/refs -type f | sed -r 's,^\.git/,,')
 
 	for REF in $REFS; do
@@ -25,7 +26,8 @@ print_refs() {
 
 print_log() {
 	echo "-- Log --"
-	if git show-ref HEAD; then
+	HEAD_REF=`git symbolic-ref HEAD`
+	if git rev-parse $HEAD_REF > /dev/null 2>&1; then
 		REVS=$(git rev-list --all)
 		for REV in $REVS; do
 			echo "$REV - $(git show -s --format=%B $REV)"
@@ -51,7 +53,7 @@ print_objects() {
 		echo -n "$OBJ $OBJ_TYPE "
 		case $OBJ_TYPE in
 			blob)
-				echo "- $(git cat-file -p $OBJ)"
+				echo "- $(git cat-file -p $OBJ | tr '\n' '\\')"
 				;;
 			commit)
 				echo "- $(git show -s --format=%B $OBJ)"

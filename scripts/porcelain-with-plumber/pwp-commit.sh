@@ -4,7 +4,9 @@ TEXT=$1
 
 TREE=`git write-tree`
 
-if git show-ref HEAD; then
+HEAD_REF=`git symbolic-ref HEAD`
+
+if git rev-parse $HEAD_REF; then
 	COMMIT=`echo $1 | git commit-tree -p HEAD $TREE`
 else
 	# First commit
