@@ -25,7 +25,9 @@ print_refs() {
 
 print_log() {
 	echo "-- Log --"
-	git rev-list --all
+	for REV in `git rev-list --all`; do
+		echo "$REV - $(git show -s --format=%B $REV)"
+	done
 	echo
 }
 
@@ -46,10 +48,10 @@ print_objects() {
 		echo -n "$OBJ $OBJ_TYPE "
 		case $OBJ_TYPE in
 			blob)
-				echo "- '$(git cat-file -p $OBJ)'"
+				echo "- $(git cat-file -p $OBJ)"
 				;;
 			commit)
-				echo "- '$(git show -s --format=%B $OBJ)'"
+				echo "- $(git show -s --format=%B $OBJ)"
 				;;
 			tag)
 				echo

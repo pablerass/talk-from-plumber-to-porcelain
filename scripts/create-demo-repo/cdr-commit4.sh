@@ -6,7 +6,7 @@ source $CUR_DIR/config.sh
 
 cd $REPO_DIR
 
-echo "f3'" > d1/f3.file
-echo "f5" > d1/f5.file
-echo "f6" > f6.file
+echo "f3'" > d1/f3.f
+echo "f5" > d1/f5.f
+echo "f6" > f6.f
 
