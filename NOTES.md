@@ -5,7 +5,10 @@
 * Its going to be quite more than an hour.
 * Need participation, ask for everything and propose, will answer, try or guess.
 
-1. What is Git.
+1. What its Git.
+    [[[1]]]
+
+1. Git internals.
     * Git ∈ { *D*CVS }
     * `git init`
     * Show `.git` file contents. Contains an individual _git_ repository.
