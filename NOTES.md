@@ -48,7 +48,7 @@
             * Add directory with files to index moving an object.
             * Create two level tree.
         * Commands:
-            * `update-index [--add]`
+            * `update-index [--add|--remove]`
             * `ls-files -s`
             * `write-tree`
             * `cat-file (-t|-p)`
@@ -102,7 +102,7 @@
     * Commands:
         * `rev-parse`
         * `rev-list [--all]
-        * `update-ref`
+        * `update-ref [--no-deref]`
         * `symbolic-ref`
     * Talk about how commit is done.
     * Show references in history.
