@@ -14,6 +14,7 @@
 1. What is also Git.
     * Git ∈ { K,V stores }
     * Different type of objects with a value from a _sha_ function.
+    * In this talk _hash_ and _id_ are the same.
     * _*Draw empty repository with working directory and staging area*_.
 
 ## Repository content and management
@@ -58,7 +59,8 @@
         * Only privileges, _pointer_ and name. No metadata.
         * Talk about metadata in index.
         * Review, same file in both trees.
-        * Talk about <id> and pointers.
+        * Talk about <id/hash> and pointers.
+        * Every empty file will have the same <id/hash>
 
     * `commit`: Pointer to tree with content.
         * Examples:
@@ -81,10 +83,15 @@
         * By design, changes in history changes everything. Is a different
           history.
         * Never two commits equal - time.
+        * Each commit tree contains all representation of file versions.
         * Hash function = `<type><size>\0<content>`.
 
     * `tag` - Ignored in this talk. Pointer to commit with text and author.
       Can be signed.
+
+    * General comments:
+        * _*Show objects data model*_.
+        * No dabase usage.
 
 1. Refs: Objects alone are impossible to maintain.
     * Stored in `.git/refs` as files.
@@ -108,11 +115,17 @@
     * Show references in history.
     * Talk about detached head. _*Draw example*_.
 
+    * _*Show objects data model with refs*_.
+
 1. Repository, staging area and working directory.
     * Only way to interchange files between working directory and repository.
     * _*Draw commands while examples with arrows*_
     * Examples:
-        * Already seen write to staging area from working directory.
+        * Already seen:
+            * Write to staging area from working directory.
+            * Write trees from staging area.
+        * Read tree into staging area.
+        * Checkout to working directory.
         * Join read from index with refs.
             * `checkout`
             * `reset`
@@ -121,6 +134,8 @@
         * `write-tree`
         * `read-tree`
         * `checkout-tree`
+    * What shows `git status`.
+    * Recover previous commit content.
 
 ## Plumber commands
 
