@@ -2,11 +2,10 @@
 
 BRANCH=$1
 
-BRANCH_COMMIT=`git rev-parse $BRANCH`
-# TODO: Correct merge, is not properly done
-if git read-tree -m -u $M refs/heads/$BRANCH; then
+MERGE_BASE=git merge-base HEAD $BRANCH
+if git read-tree -m -u $MERGE_BASE $H $BRANCH; then
 	TREE=`git write-tree`
-	COMMIT=`echo "Merge commit $BRANCH" | git commit-tree -p HEAD -p $BRANCH_COMMIT $TREE`
+	COMMIT=`echo "Merge $BRANCH" | git commit-tree -p HEAD -p $BRANCH $TREE`
 
 	git update-ref HEAD $COMMIT
 fi

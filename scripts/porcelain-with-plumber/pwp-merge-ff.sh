@@ -8,4 +8,6 @@ if ! git rev-list $BRANCH | grep $HEAD > /dev/null; then
 	exit 1
 fi
 
-git update-ref HEAD refs/heads/$BRANCH
+if git read-tree -u -m $H $BRANCH; then
+	git update-ref HEAD refs/heads/$BRANCH
+fi
