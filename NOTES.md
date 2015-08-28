@@ -5,7 +5,10 @@
 * Its going to be quite more than an hour.
 * Need participation, ask for everything and propose, will answer, try or guess.
 
-1. What is Git.
+1. What its Git.
+    [[[1]]]
+
+1. Git internals.
     * Git ∈ { *D*CVS }
     * `git init`
     * Show `.git` file contents. Contains an individual _git_ repository.
@@ -49,7 +52,7 @@
             * Add directory with files to index moving an object.
             * Create two level tree.
         * Commands:
-            * `update-index [--add]`
+            * `update-index [--add|--remove]`
             * `ls-files -s`
             * `write-tree`
             * `cat-file (-t|-p)`
@@ -109,7 +112,7 @@
     * Commands:
         * `rev-parse`
         * `rev-list [--all]
-        * `update-ref`
+        * `update-ref [--no-deref]`
         * `symbolic-ref`
     * Talk about how commit is done.
     * Show references in history.
