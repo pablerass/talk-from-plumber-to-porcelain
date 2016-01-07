@@ -28,7 +28,7 @@ print_log() {
 	echo "-- Log --"
 	HEAD_REF=`git symbolic-ref HEAD`
 	if git rev-parse $HEAD_REF > /dev/null 2>&1; then
-		REVS=$(git rev-list --all)
+		REVS=$(git rev-list HEAD)
 		for REV in $REVS; do
 			echo "$REV - $(git show -s --format=%B $REV)"
 		done
