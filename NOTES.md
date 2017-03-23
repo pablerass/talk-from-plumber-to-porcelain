@@ -28,6 +28,8 @@
 
 ## Objects
 
+_*Open monitor*_
+
 Stored in `.git/objects` as files.
 
 * `blob`: Contain data.
