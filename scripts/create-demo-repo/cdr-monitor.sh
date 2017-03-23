@@ -1,5 +1,11 @@
 #!/bin/bash
 
+CUR_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+source $CUR_DIR/config.sh
+
+cd $REPO_DIR
+
 print_head() {
 	HEAD=$(git symbolic-ref HEAD)
 	echo "-- HEAD --"
