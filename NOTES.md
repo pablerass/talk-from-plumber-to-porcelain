@@ -58,7 +58,7 @@ Stored in `.git/objects` as files.
         * Add directory with files to index moving an object.
         * Create two level tree.
     * Commands:
-        * `update-index [--add|--remove]`
+        * `update-index [--add [--remove]]`
         * `ls-files -s`
         * `write-tree`
         * `cat-file (-t|-p)`
